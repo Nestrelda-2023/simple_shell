@@ -1,9 +1,6 @@
 #include "shell.h"
 #include "gvar.h"
-/*char *program_name; 
-char *buffer = NULL; 
-size_t bufsize = 0;
-ssize_t nread;*/
+
 
 /**
  * main - entry point for the shell
@@ -13,7 +10,7 @@ ssize_t nread;*/
  */
 int main(int argc, char **argv)
 {
-    (void)argc; /* Suppress unused parameter warning */
+    (void)argc; /* Suppress argc*/
     program_name = argv[0]; /* Assign program name from argv[0] */
 
     while (1)
