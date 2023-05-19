@@ -8,13 +8,15 @@
 #include <sys/wait.h>
 #include <stddef.h>
 
-
+#define BUFFER_SIZE 1024
 #define PROMPT "$"
+#define MAX_COMMAND_LENGTH 1024
 
+extern char *program_name;
 extern char **environ;
 void print_prompt(void);
 void check_env(void);
-void execute_command(char *command_line);
+void exec_ute(char *cmd);
 
 void print_error(char *msg);
 void prompt(char *msg);
@@ -22,6 +24,17 @@ void print_command_not_found_error(void);
 void print_malloc_error(void);
 void print_execvp_error(void);
 
+char *get_line();
+
+void par_se(char *cmd, char *args[], int *arg_count);
+void ex_it(char *args[], int arg_count);
+void exe_com(char *args[], char *program_name);
+
+/*###global vars#####*/
+/*char *program_name; 
+char *buffer = NULL; 
+size_t bufsize = 0;
+ssize_t nread;*/
 
 #endif
 
