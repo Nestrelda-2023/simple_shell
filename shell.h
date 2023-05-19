@@ -30,11 +30,6 @@ void par_se(char *cmd, char *args[], int *arg_count);
 void ex_it(char *args[], int arg_count);
 void exe_com(char *args[], char *program_name);
 
-/*###global vars#####*/
-/*char *program_name; 
-char *buffer = NULL; 
-size_t bufsize = 0;
-ssize_t nread;*/
 
 #endif
 
