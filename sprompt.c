@@ -5,6 +5,6 @@
 */
 void print_prompt(void)
 {
-        printf("%s", PROMPT);
-        fflush(stdout);
+	printf("%s", PROMPT);
+	fflush(stdout);
 }

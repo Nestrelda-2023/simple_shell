@@ -1,7 +1,7 @@
 #include "shell.h"
 
 
-/******************************updated env.c file to remove extern *********************************************/
+/**updated env.c file to remove extern **/
 /**
  * check_env - checks and prints the environment variables
  * Return: environment variables
@@ -34,4 +34,3 @@ void check_env(void)
 		env++;
 	}
 }
-
