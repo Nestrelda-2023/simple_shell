@@ -29,4 +29,16 @@ void par_se(char *cmd, char *args[], int *arg_count)
 
 	args[*arg_count] = NULL;
 }
-
+/**
+ * _strcmp - Compare two strings.
+ * @s1: The first string.
+ * @s2: The second string.
+ *
+ * Return: Negative value if s1 is less than s2,
+ *         0 if s1 and s2 are equal,
+ *         Positive value if s1 is greater than s2.
+ */
+int _strcmp(char *s1, char *s2)
+{
+	return (strcmp(s1, s2));
+}
