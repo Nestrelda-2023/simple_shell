@@ -11,6 +11,7 @@ char *str_toc(char *str, const char *delim, char **saveptr)
 {
 	char *token_start;
 	char *token_end;
+
 	if (str != NULL)
 	{
 		*saveptr = str;
