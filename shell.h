@@ -1,16 +1,21 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+
+#include <stdbool.h>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 #include <stddef.h>
 
 #define BUFFER_SIZE 1024
 #define PROMPT "$"
 #define MAX_COMMAND_LENGTH 1024
+#define DELIM " \t\r\n\a"
 
 extern char *program_name;
 extern char **environ;
@@ -29,7 +34,12 @@ char *get_line();
 void par_se(char *cmd, char *args[], int *arg_count);
 void ex_it(char *args[], int arg_count);
 void exe_com(char *args[], char *program_name);
+void set_env_var(char *args[], int arg_count);
+void unset_env_var(char *args[], int arg_count);
+void cd(char *args[], int arg_count);
 
+char* str_pbrk(const char* str, const char* delim);
+char* str_toc(char* str, const char* delim, char** saveptr);
 
 #endif
 
