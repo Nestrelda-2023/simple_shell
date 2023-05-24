@@ -21,9 +21,12 @@ char *get_line()
 			buffer_pos = 0;
 			if (chars_read == 0)
 			{
-				if (line_len > 0)
-					break;
-				return NULL;
+				if (line_len == 0)
+				{
+					putchar('\n');
+					return (NULL);
+				}
+				break;
 			}
 			else if (chars_read < 0)
 			{
@@ -58,6 +61,6 @@ char *get_line()
 		line[line_len] = '\0';
 	}
 
-	return line;
+	return (line);
 }
 
