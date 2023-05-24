@@ -2,29 +2,55 @@
 #include "gvar.h"
 
 /**
- * main - Entry point for the shell
- * @argc: Argument count
- * @argv: Argument vector
- * Return: 0 on success, 1 on error
+ * main - Entry point of the shell program
+ * @argc: The number of command-line arguments
+ * @argv: An array of command-line argument strings
+ *
+ * Return: Always 0.
  */
 int main(int argc, char **argv)
 {
+	char *buffer;
 	(void)argc;
 	program_name = argv[0];
 
-	while (1)
+	if (isatty(STDIN_FILENO))
 	{
-		print_prompt();
-		buffer = get_line();
-		if (buffer == NULL)
+		while (1)
 		{
-			putchar('\n');
+			print_prompt();
+			buffer = get_line();
+			if (buffer == NULL)
+			{
+				putchar('\n');
+				continue;
+			}
+
+			exec_ute(buffer);
 			free(buffer);
-			exit(EXIT_SUCCESS);
+		}
+	}
+	else
+	{
+		char *line = NULL;
+		size_t line_size = 0;
+		ssize_t chars_read;
+
+		while ((chars_read = getline(&line, &line_size, stdin)) != -1)
+		{
+			if (chars_read > 0 && line[chars_read - 1] == '\n')
+				line[chars_read - 1] = '\0';
+
+			if (line[0] == '\0')
+			{
+				putchar('\n');
+				continue;
+			}
+
+			exec_ute(line);
 		}
 
-		exec_ute(buffer);
-		free(buffer);
+		free(line);
 	}
 
 	return (0);
