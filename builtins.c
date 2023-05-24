@@ -48,7 +48,7 @@ void cd(char *args[], int arg_count)
 	char *path = args[1];
 	char *current_directory;
 
-	if (arg_count == 1 || (arg_count == 2 && strcmp(path, "~") == 0))
+	if (arg_count == 1 || (arg_count == 2 && _strcmp(path, "~") == 0))
 	{
 		path = getenv("HOME");
 		if (path == NULL)
@@ -57,7 +57,7 @@ void cd(char *args[], int arg_count)
 			return;
 		}
 	}
-	else if (strcmp(path, "-") == 0)
+	else if (_strcmp(path, "-") == 0)
 	{
 		path = getenv("OLDPWD");
 		if (path == NULL)
