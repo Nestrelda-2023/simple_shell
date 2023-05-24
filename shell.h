@@ -40,6 +40,10 @@ void cd(char *args[], int arg_count);
 
 char* str_pbrk(const char* str, const char* delim);
 char* str_toc(char* str, const char* delim, char** saveptr);
+char *_strchr(char *s, char c);
+char *_strncpy(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
+
 
 #endif
 
