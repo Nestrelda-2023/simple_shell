@@ -20,19 +20,19 @@ void exec_ute(char *cmd)
 
 		par_se(command, args, &arg_count);
 
-		if (strcmp(args[0], "exit") == 0)
+		if (_strcmp(args[0], "exit") == 0)
 		{
 			ex_it(args, arg_count);
 		}
-		else if (strcmp(args[0], "cd") == 0)
+		else if (_strcmp(args[0], "cd") == 0)
 		{
 			cd(args, arg_count);
 		}
-		else if (strcmp(args[0], "setenv") == 0)
+		else if (_strcmp(args[0], "setenv") == 0)
 		{
 			set_env_var(args, arg_count);
 		}
-		else if (strcmp(args[0], "unsetenv") == 0)
+		else if (_strcmp(args[0], "unsetenv") == 0)
 		{
 			unset_env_var(args, arg_count);
 		}
