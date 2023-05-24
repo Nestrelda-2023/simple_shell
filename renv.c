@@ -12,7 +12,7 @@ void check_env(void)
 
 	while (*env)
 	{
-		char *equals = strchr(*env, '=');
+		char *equals = _strchr(*env, '=');
 
 		if (equals != NULL)
 		{
@@ -25,7 +25,7 @@ void check_env(void)
 				exit(EXIT_FAILURE);
 			}
 
-			strncpy(name, *env, index);
+			_strncpy(name, *env, index);
 			name[index] = '\0';
 			printf("%s=%s\n", name, equals + 1);
 			free(name);
@@ -34,3 +34,29 @@ void check_env(void)
 		env++;
 	}
 }
+/**
+ * _strchr - Locate character in string.
+ * @s: The string to search.
+ * @c: The character to locate.
+ *
+ * Return: Pointer to the first occurrence of character c in string s,
+ *         or NULL if the character is not found.
+ */
+char *_strchr(char *s, char c)
+{
+	return (strchr(s, c));
+}
+
+/**
+ * _strncpy - Copy a string.
+ * @dest: The destination buffer.
+ * @src: The source string.
+ * @n: The maximum number of characters to copy.
+ *
+ * Return: Pointer to the destination buffer.
+ */
+char *_strncpy(char *dest, char *src, int n)
+{
+	return (strncpy(dest, src, n));
+}
+
