@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <stddef.h>
+#include <ctype.h>
 
 #define BUFFER_SIZE 1024
 #define PROMPT "$"
@@ -43,7 +44,7 @@ char* str_toc(char* str, const char* delim, char** saveptr);
 char *_strchr(char *s, char c);
 char *_strncpy(char *dest, char *src, int n);
 int _strcmp(char *s1, char *s2);
-
+int _atoi(char *s);
 
 #endif
 
