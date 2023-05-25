@@ -84,20 +84,63 @@ void exe_com(char *args[], char *program_name)
  */
 void ex_it(char *args[], int arg_count)
 {
+	int status;
+
 	if (arg_count == 1)
 	{
 		exit(EXIT_SUCCESS);
 	}
 	else if (arg_count == 2)
 	{
-		int status = atoi(args[1]);
+		char *status_str = args[1];
+		int i;
 
+		for (i = 0; status_str[i] != '\0'; i++)
+		{
+			if (!isdigit(status_str[i]))
+			{
+				fprintf(stderr, "Usage: exit [status]\n");
+				exit(2);
+			}
+		}
+		status = _atoi(status_str);
 		exit(status);
+
+		}
+		else
+		{
+			fprintf(stderr, "Usage: exit [status]\n");
+			exit(2);
+			}
+}
+
+/**
+ *_atoi - Converts string to integer
+ *@s: string
+ *Return: converted integer
+*/
+int _atoi(char *s)
+{
+	int sign = 1;
+	int result = 0;
+	int i = 0;
+
+	if (s[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+
+	for (; s[i] != '\0'; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+	{
+		result = result * 10 + (s[i] - '0');
 	}
 	else
 	{
-		fprintf(stderr, "Usage: exit [status]\n");
-		return;
+		return (0);
 	}
+	}
+	return (sign * result);
 }
-
