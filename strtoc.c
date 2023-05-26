@@ -1,16 +1,15 @@
 #include "shell.h"
 /**
- * str_toc - Tokenize a string into consecutive tokens
- * @str: The string to tokenize
- * @delim: The delimiter character(s)
+ * str_toc - Tokenize a string to tokens
+ * @str: string to tokenize
+ * @delim: delimiter char
  * @saveptr: Pointer to the saved position for subsequent calls
- *
  * Return: Pointer to the next token in the string
  */
 char *str_toc(char *str, const char *delim, char **saveptr)
 {
-	char *token_start;
-	char *token_end;
+	char *ax;
+	char *te;
 
 	if (str != NULL)
 	{
@@ -25,19 +24,19 @@ char *str_toc(char *str, const char *delim, char **saveptr)
 		str = *saveptr;
 	}
 
-	token_start = str;
-	token_end = str_pbrk(token_start, delim);
+	ax = str;
+	te = str_pbrk(ax, delim);
 
-	if (token_end != NULL)
+	if (te != NULL)
 	{
-		*token_end = '\0';
-		*saveptr = token_end + 1;
+		*te = '\0';
+		*saveptr = te + 1;
 	}
 	else
 	{
 		*saveptr = NULL;
 	}
 
-	return (token_start);
+	return (ax);
 }
 
